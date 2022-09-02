@@ -1,0 +1,45 @@
+	public int getKthFromTheEnd(int k) {
+		if(!isEmpty()&& k>0 && k<=size())
+		{
+			Node a = first;
+			Node b = first;
+			int diff = 0;
+			while (a != null) {
+				a = a.next;
+				diff++;
+				if (diff > k)
+					{
+						b = b.next;
+						diff=0;
+					}
+			}
+			return b.value;
+		}
+		else
+			return 0;
+	}
+	
+	
+	
+	public void printMiddle()
+	{
+		if(isEmpty())
+			throw new IllegalStateException();
+		
+		Node a=first;
+		Node b=first;
+		int c1=1;
+		int c2=1;
+		
+		while(b!=null)
+		{
+			b=b.next;
+			
+			if((int)Math.ceil((double)c1/2)!=c2)
+			{
+				a=a.next;
+				c2++;
+			}
+			c1++;
+		}
+}

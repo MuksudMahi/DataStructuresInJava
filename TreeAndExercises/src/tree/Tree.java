@@ -292,6 +292,21 @@ public class Tree {
 		return false;
 	}
 
+	public boolean isBalanced() {
+		return isBalanced(root);
+	}
+
+	private boolean isBalanced(Node root) {
+		if (root == null)
+			return true;
+		var bf = height(root.leftChild) - height(root.rightChild);
+		return bf <= 1 && bf >= -1 && isBalanced(root.leftChild) && isBalanced(root.rightChild);
+	}
+
+	public boolean isPerfect() {
+		return size() == (Math.pow(2, height() + 1) - 1);
+	}
+
 	private boolean isEmpty() {
 		return root == null;
 	}
